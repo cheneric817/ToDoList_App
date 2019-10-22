@@ -1,14 +1,9 @@
 /* CSS file for todoList.html */
-#container {
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  width: 360px;
-  margin: 100px auto;
-  background: #f7f7f7;
-}
-
-.completed {
-  color: gray;
-  text-decoration: line-through;
+body {
+  font-family: Roboto;
+  background: #00C9FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {
@@ -27,13 +22,6 @@ ul {
   padding: 0;
 }
 
-body {
-  font-family: Roboto;
-  background: #00C9FF;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 li {
   background: white;
   height: 40px;
@@ -43,6 +31,25 @@ li {
 
 li:nth-child(2n) {
   background: #f7f7f7;
+}
+
+/* when we hover over an <li>, we want to select a <span> that's inside, and set the width to be 40px */
+li:hover span {
+  width: 40px;
+  opacity: 1.0;
+}
+
+li span {
+  background: #e74c3c;
+  height: 40px;
+  margin-right: 20px;
+  text-align: center;
+  color: white;
+  width: 0;
+  display: inline-block;
+  transition: 0.2s linear;
+  /* To make the icon disappear when not hovering over it, make the opacity zero */
+  opacity: 0;
 }
 
 input {
@@ -64,25 +71,19 @@ input:focus {
   outline: none;
 }
 
+#container {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  width: 360px;
+  margin: 100px auto;
+  background: #f7f7f7;
+}
+
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+/* FontAwesome plus icon */
 .fa-plus {
   float: right;
-}
-
-li span {
-  background: #e74c3c;
-  height: 40px;
-  margin-right: 20px;
-  text-align: center;
-  color: white;
-  width: 0;
-  display: inline-block;
-  transition: 0.2s linear;
-  /* To make the icon disappear when not hovering over it, make the opacity zero */
-  opacity: 0;
-}
-
-/* when we hover over an <li>, we want to select a <span> that's inside, and set the width to be 40px */
-li:hover span {
-  width: 40px;
-  opacity: 1.0;
 }
