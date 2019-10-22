@@ -1,15 +1,27 @@
 // JS file for todoList.html
 
 //check off specific todos by clicking
-$("li").click(function() {
+$("ul").on("click", "li", function() {
   $(this).toggleClass("completed");
 });
 
 
 //click X to delete todo
-$("span").click(function(event) {
+$("ul").on("click", "span", function(event) {
   $(this).parent().fadeOut(500, function() {
     $(this).remove(); //this refers to the <li>, not the <span> element
   });
+  //stop the action from bubbling
   event.stopPropagation();
+});
+
+$("input[type='text']").keypress(function(event){
+  if(event.which === 13) {
+    //use the val() method to grab the text entered in the input box
+    var todoText = $(this).val();
+    //empty the input field after pressing enter
+    $(this).val("");
+    //create a new <li> and add to <ul>
+    $("ul").append("<li><span>X</span> " + todoText + "</li>");
+  }
 });
